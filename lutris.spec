@@ -27,6 +27,7 @@ BuildRequires:  fdupes
 BuildRequires:  meson
 BuildRequires:  gettext
 Requires:       python3-gobject
+Requires:       python3-cairo
 Requires:       python3-PyYAML
 Requires:       python3-requests
 Requires:       python3-dbus
