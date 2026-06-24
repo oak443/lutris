@@ -49,6 +49,10 @@ Requires:       vulkan-loader(x86-32)
 Requires:       gtk3, psmisc, xrandr
 Requires:       gnome-desktop3
 Requires:       mesa-libGL
+Requires:       webkit2gtk4.1
+Requires:       glx-utils
+Requires:       vulkan-tools
+Requires:       pciutils
 %ifarch x86_64
 Requires:       mesa-libGL(x86-32)
 %endif
