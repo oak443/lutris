@@ -80,7 +80,11 @@ class DlsiteService(OnlineService):
         if url.startswith(self.login_url):
             return False
         return any(url.startswith(r) for r in self.redirect_uris)
-    
+
+    def get_installed_slug(self, db_game: dict[str, Any]) -> str:
+        """Use the RJ code (appid) as the default installation slug instead of the game name."""
+        return db_game.get("appid", "").lower() or super().get_installed_slug(db_game)
+
     cookies_path = os.path.join(settings.CACHE_DIR, ".dlsite.auth")
     cache_path = os.path.join(settings.CACHE_DIR, "dlsite-library.json")
 
