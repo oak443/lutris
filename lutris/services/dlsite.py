@@ -74,6 +74,13 @@ class DlsiteService(OnlineService):
     login_url = "https://play.dlsite.com/login"
     redirect_uris = ["https://play.dlsite.com/"]
 
+    def is_login_complete(self, url):
+        """Check if the given URL indicates that login is complete."""
+        # Ensure we don't immediately match the login_url itself since it starts with the redirect URI
+        if url.startswith(self.login_url):
+            return False
+        return any(url.startswith(r) for r in self.redirect_uris)
+    
     cookies_path = os.path.join(settings.CACHE_DIR, ".dlsite.auth")
     cache_path = os.path.join(settings.CACHE_DIR, "dlsite-library.json")
 

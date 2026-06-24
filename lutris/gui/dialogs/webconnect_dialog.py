@@ -62,6 +62,7 @@ class WebConnectDialog(ModalDialog):
             service.cookies_path,
             WebKit2.CookiePersistentStorage(0),
         )
+        self.context.set_tls_errors_policy(WebKit2.TLSErrorsPolicy.IGNORE)
         self.service = service
 
         super().__init__(title=service.name, parent=parent)
